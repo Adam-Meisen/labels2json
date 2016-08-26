@@ -60,18 +60,17 @@ function labels2json(inputFile, outputFile) {
     line = line.split('\t');
 
     if (line.length > 1) {
+      var label = {};
       var startTime = parseFloat(line[0]);
       var endTime = parseFloat(line[1]);
       var name = null;
       if (line.length > 2) name = line[2];
 
-      var label = {
-        start: startTime,
-        name: name
-      };
-
+      label.start = startTime;
       // don't add an end time if it's the same as the start time
       if (startTime !== endTime) label.end = endTime;
+
+      label.name = name;
 
       labelsAsJSON.labels.push(label);
     }
