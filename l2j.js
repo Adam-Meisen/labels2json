@@ -60,16 +60,20 @@ function labels2json(inputFile, outputFile) {
     line = line.split('\t');
 
     if (line.length > 1) {
-      var startTime = line[0];
-      var endTime = line[1];
+      var startTime = parseFloat(line[0]);
+      var endTime = parseFloat(line[1]);
       var name = null;
       if (line.length > 2) name = line[2];
 
-      labelsAsJSON.labels.push({
-        'start': startTime,
-        'end': endTime,
-        'name': name
-      });
+      var label = {
+        start: startTime,
+        name: name
+      };
+
+      // don't add an end time if it's the same as the start time
+      if (startTime !== endTime) label.end = endTime;
+
+      labelsAsJSON.labels.push(label);
     }
   });
   rl.on('close', () => {
@@ -114,6 +118,6 @@ function sortLabels() {
 
   labels.sort((a, b) => {
     // ascending order by start time
-    return parseFloat(a.start) - parseFloat(b.start);
+    return a.start - b.start;
   });
 }
