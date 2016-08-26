@@ -8,13 +8,12 @@ The format of the resulting JSON is as follows:
 {
   "labels": [
     {
-      "start": "21.174000",
-      "end": "21.174000",
+      "start": 21.174000,
       "name": "Label1"
     },
     {
-      "start": "21.227000",
-      "end": "21.227000",
+      "start": 21.227000,
+      "end": 22.227000,
       "name": "Label2"
     },
     ...
