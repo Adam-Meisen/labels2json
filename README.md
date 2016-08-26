@@ -8,12 +8,14 @@ The format of the resulting JSON is as follows:
 {
   "labels": [
     {
-      "start": 21.174000,
+      //point label, marks a single point in time
+      "start": 21.174,
       "name": "Label1"
     },
     {
-      "start": 21.227000,
-      "end": 22.227000,
+      //label over a duration, has a start and end time
+      "start": 21.227,
+      "end": 22.227,
       "name": "Label2"
     },
     ...
